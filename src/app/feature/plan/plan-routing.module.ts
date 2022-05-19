@@ -5,6 +5,7 @@ import { ListarPlanComponent } from './components/listar-plan/listar-plan.compon
 import { PlanComponent } from './components/plan/plan.component';
 
 
+
 const routes: Routes = [
   {
     path: '',

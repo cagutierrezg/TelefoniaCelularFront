@@ -6,6 +6,7 @@ import { CrearPlanComponent } from './components/crear-plan/crear-plan.component
 import { PlanComponent } from './components/plan/plan.component';
 import { SharedModule } from '@shared/shared.module';
 import { PlanService } from './shared/service/plan.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import { PlanService } from './shared/service/plan.service';
   ],
   imports: [
     PlanRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [PlanService]
 })

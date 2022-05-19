@@ -8,6 +8,8 @@ import { ActualizarClienteComponent } from './components/actualizar-cliente/actu
 import { SharedModule } from '@shared/shared.module';
 import { ClienteService } from './shared/service/cliente.service';
 import { ClienteComponent } from './components/cliente/cliente.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { ClienteComponent } from './components/cliente/cliente.component';
   ],
   imports: [
     ClienteRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [ClienteService]
 })
