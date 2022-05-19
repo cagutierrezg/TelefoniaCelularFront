@@ -1,0 +1,37 @@
+
+<form [formGroup]="actualizarForm">
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Id de cliente:</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="number" id="id" name="id" placeholder="id de cliente" class="form-control"
+          formControlName="id">
+      </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-2">
+          <label>Id del plan nuevo:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="planId" name="planId" placeholder="id del plan" class="form-control"
+            formControlName="planId">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Valor del plan nuevo:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="planValue" name="planValue" placeholder="valor del plan" class="form-control"
+            formControlName="planValue">
+        </div>
+      </div>
+    
+    <button  (click)="actualizar()" >
+        Actualizar</button>
+
+    
+  </form>

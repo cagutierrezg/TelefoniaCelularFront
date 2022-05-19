@@ -1,0 +1,71 @@
+
+<form [formGroup]="consultaForm">
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Número de documento:</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="text" id="documentNumber" name="documentNumber" placeholder="Numero de documento" class="form-control"
+          formControlName="documentNumber">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Número de telefono:</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="text" id="phoneNumber" name="phoneNumber" placeholder="Número de telefono"
+          class="form-control" formControlName="phoneNumber">
+      </div>
+    </div>
+    
+    <button  (click)="consultar()" >
+        Consultar</button>
+
+    
+  </form>
+
+
+
+<div id="clientes">
+    <ul class="clientes">
+      <table class="table">
+        <thead class="thead-dark">
+
+        </thead>
+        <tbody>
+              
+                <tr *ngFor="let item of listaCliente | async">
+      
+                  <td>{{item.id}}</td>
+              
+                  <td>{{item.documentType}}</td>
+              
+                  <td>{{item.documentNumber}}</td>
+      
+                  <td>{{item.clientName}}</td>
+      
+                  <td>{{item.phoneNumber}}</td>
+              
+                  <td>{{item.namePlan}}</td>
+      
+                  <td>{{item.valuePlan}}</td>
+      
+                  <td>{{item.time}}</td>
+              
+              
+              
+                </tr>
+              </tbody>
+            
+            
+        </table>
+        <h1 class="btn btn-primary"  id="linkEliminarCliente" routerLink="../eliminar" routerLinkActive="active">Borrar Cliente</h1>
+        <h2 class="btn btn-primary"  id="linkActualizarCliente" routerLink="../actualizar" routerLinkActive="active">Actualizar Cliente</h2>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </ul>
+
+   
+  </div>
+  
+  

@@ -1,0 +1,75 @@
+<h1></h1>
+<form [formGroup]="clienteForm">
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Tipo de documento:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="documentType" name="documentType" placeholder="Tipo de documento" class="form-control"
+        formControlName="documentType">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Número de documento:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="documentNumber" name="documentNumber" placeholder="Número de documento"
+        class="form-control" formControlName="documentNumber">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Nombre del Cliente:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="clientName" name="clientName" placeholder="Nombre del cliente" class="form-control"
+        formControlName="clientName">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Número de telefono:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="phoneNumber" name="phoneNumber" placeholder="Número de telefono" class="form-control"
+        formControlName="phoneNumber">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Id del plan:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="planId" name="planId" placeholder="Id del plan" class="form-control"
+        formControlName="planId">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Valor del plan:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="planValue" name="planValue" placeholder="Valor de plan" class="form-control"
+        formControlName="planValue">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Fecha de inicio:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text"   id="startDate" name="startDate" placeholder="Fecha de inicio" class="form-control"
+        formControlName="startDate">
+    </div>
+  </div>
+
+  
+  
+  
+    
+    <button  (click)="cerar()" >
+      Registrar</button>
+    
+  
+</form>

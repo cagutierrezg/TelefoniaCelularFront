@@ -1,0 +1,39 @@
+<h1></h1>
+<form [formGroup]="planForm" >
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Nombre de plan:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="namePlan" name="namePlan" placeholder="Nombre plan" class="form-control"
+        formControlName="namePlan">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>valor de plan:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="valuePlan" name="valuePlan" placeholder="valor plan"
+        class="form-control" formControlName="valuePlan">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <label>Especificaciones:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="specificationPlan" name="specificationPlan" placeholder="Especificaciones" class="form-control"
+        formControlName="specificationPlan">
+    </div>
+  </div>
+
+  
+  
+  
+    
+    <button  (click)="cerar()" >
+      Crear Plan</button>
+    
+  
+</form>

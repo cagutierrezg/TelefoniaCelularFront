@@ -1,0 +1,27 @@
+h1 {
+    background-color: #931929;
+    color: white;
+    text-decoration: none;
+    cursor:pointer;
+    text-align: center;
+    position: absolute;
+    top: 80px;
+    right: 500px;
+}
+
+h2 {
+    background-color: #931929;
+    color: white;
+    text-decoration: none;
+    cursor:pointer;
+    text-align: center;
+    position: absolute;
+    top: 80px;
+    left: 500px;
+}
+
+nav { background-color: burlywood;
+    background-position: right center;
+    background-size: cover;
+    width: 100%;
+    height: 100px;}

@@ -1,0 +1,17 @@
+
+<form [formGroup]="eliminarForm">
+    <div class="row">
+      <div class="col-sm-2">
+        <label>Id de cliente:</label>
+      </div>
+      <div class="col-sm-4">
+        <input validar type="number" id="id" name="id" placeholder="id de cliente" class="form-control"
+          formControlName="id">
+      </div>
+    </div>
+    
+    <button  (click)="eliminar()" >
+        Eliminar</button>
+
+    
+  </form>
