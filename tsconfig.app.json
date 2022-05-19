@@ -17,9 +17,6 @@
       "@plan/*": [
         "src/app/feature/plan/*"
       ],
-      "@producto/*": [
-        "src/app/feature/producto/*"
-      ],
       "@cliente/*": [
         "src/app/feature/cliente/*"
       ],

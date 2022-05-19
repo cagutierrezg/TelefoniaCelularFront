@@ -1,4 +1,4 @@
-import { browser, logging } from 'protractor';
+
 import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { ClientePage } from '../page/cliente/cliente.po';

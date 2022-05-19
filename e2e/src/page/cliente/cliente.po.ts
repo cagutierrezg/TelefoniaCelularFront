@@ -3,7 +3,6 @@ import { by, element } from 'protractor';
 export class ClientePage {
     private linkCrearCliente = element(by.id('linkCrearCliente'));
     private linkListarCliente = element(by.id('linkListarCliente'));
-    private linkEliminarCliente = element(by.id('linkEliminarCliente'))
     private inputId = element(by.id('id'));
     private inputDocumentType = element(by.id('documentType'));
     private inputDocumentNumber = element(by.id('documentNumber'));
