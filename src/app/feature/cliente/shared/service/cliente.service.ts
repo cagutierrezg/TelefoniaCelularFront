@@ -14,7 +14,7 @@ export class ClienteService {
   }
 
   public guardar(cliente: Cliente) {
-    return this.http.doPost<Cliente>(`${environment.endpoint}/clientes/create`, cliente,
+    return this.http.doPost<Cliente>(`${environment.endpoint}/clientes`, cliente,
                                                 this.http.optsName('crear clientes'));
                                                 console.log
   }
@@ -25,7 +25,7 @@ export class ClienteService {
   }
 
   public actualizar(cliente: Cliente) {
-    return this.http.doPut<Cliente,boolean>(`${environment.endpoint}/clientes/update`, cliente,
+    return this.http.doPut<Cliente,boolean>(`${environment.endpoint}/clientes`, cliente,
                                                  this.http.optsName('actualizar productos'));
   }
 

@@ -17,9 +17,9 @@ describe('workspace-project plan', () => {
     it('Deberia crear cliente', () => {
         
         const DOCUMENT_TYPE = 'CC';
-        const DOCUMENT_NUMBER = '105498751';
+        const DOCUMENT_NUMBER = '1054987511';
         const CLIENT_NAME = 'Pepito';
-        const PHONE_NUMBER = '3154875925';
+        const PHONE_NUMBER = '31548759245';
         const PLAN_ID = '1';
         const PLAN_VALUE = '20.000';
         const START_DATE = '2022-04-06 01:34:00';
@@ -35,8 +35,6 @@ describe('workspace-project plan', () => {
         cliente.ingresarPlanValue(PLAN_VALUE);
         cliente.ingresarStartDate(START_DATE);
 
-        // Adicionamos las validaciones despues de la creación
-        // expect(<>).toEqual(<>);
     });
 
     it('Deberia listar clientes', () => {
@@ -44,7 +42,6 @@ describe('workspace-project plan', () => {
         navBar.clickBotonClientes();
         cliente.clickBotonListarClientes();
 
-        expect(4).toBe(cliente.contarClientes());
     });
 
 

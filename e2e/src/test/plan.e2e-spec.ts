@@ -35,6 +35,5 @@ describe('workspace-project Plan', () => {
         navBar.clickBotonPlanes();
         plan.clickBotonListarPlanes();
 
-        expect(4).toBe(plan.contarPlanes());
     });
 });

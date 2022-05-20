@@ -14,7 +14,7 @@ export class PlanService {
   }
 
   public guardar(plan: Plan) {
-    return this.http.doPost<Plan>(`${environment.endpoint}/planes/create`, plan,
+    return this.http.doPost<Plan>(`${environment.endpoint}/planes`, plan,
                                                 this.http.optsName('crear planes'));
                                                 console.log
   }
