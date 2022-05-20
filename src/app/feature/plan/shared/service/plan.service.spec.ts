@@ -11,7 +11,7 @@ describe('PlanesService', () => {
   let httpMock: HttpTestingController;
   let service: PlanService;
   const apiEndpointPlanesConsulta = `${environment.endpoint}/planes/0`;
-  const apiEndpointPlanes = `${environment.endpoint}/planes/create`;
+  const apiEndpointPlanes = `${environment.endpoint}/planes`;
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({

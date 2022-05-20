@@ -45,7 +45,7 @@ describe('ClienteService', () => {
     service.guardar(dummyCliente).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(`${apiEndpointClientesConsulta}/create`);
+    const req = httpMock.expectOne(`${apiEndpointClientesConsulta}`);
     expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<boolean>({body: true}));
   });
@@ -66,7 +66,7 @@ describe('ClienteService', () => {
     service.actualizar(dummyCliente).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(`${apiEndpointClientesConsulta}/update`);
+    const req = httpMock.expectOne(`${apiEndpointClientesConsulta}`);
     expect(req.request.method).toBe('PUT');
     req.event(new HttpResponse<boolean>({body: true}));
 
