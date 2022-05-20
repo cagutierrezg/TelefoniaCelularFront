@@ -3,7 +3,7 @@ import { NavbarPage } from '../page/navbar/navbar.po';
 import { AppPage } from '../app.po';
 import { ClientePage } from '../page/cliente/cliente.po';
 
-describe('workspace-project plan', () => {
+describe('workspace-project Cliente', () => {
     let page: AppPage;
     let navBar: NavbarPage;
     let cliente: ClientePage;
@@ -35,14 +35,11 @@ describe('workspace-project plan', () => {
         cliente.ingresarPlanValue(PLAN_VALUE);
         cliente.ingresarStartDate(START_DATE);
 
-    });
-
-    it('Deberia listar clientes', () => {
-        page.navigateTo();
-        navBar.clickBotonClientes();
-        cliente.clickBotonListarClientes();
+        cliente.clickBotonRegistrar();
 
     });
+
+   
 
 
 });

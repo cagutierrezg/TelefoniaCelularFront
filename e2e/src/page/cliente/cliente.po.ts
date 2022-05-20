@@ -2,7 +2,7 @@ import { by, element } from 'protractor';
 
 export class ClientePage {
     private linkCrearCliente = element(by.id('linkCrearCliente'));
-    private linkListarCliente = element(by.id('linkListarCliente'));
+    private linkConsultarCliente = element(by.id('linkConsultarCliente'));
     private inputId = element(by.id('id'));
     private inputDocumentType = element(by.id('documentType'));
     private inputDocumentNumber = element(by.id('documentNumber'));
@@ -11,14 +11,19 @@ export class ClientePage {
     private inputPlanId = element(by.id('planId'));
     private inputPlanValue = element(by.id('planValue'));
     private inputStartDate = element(by.id('startDate'));
+    private buttonRegistrar = element(by.id('registrar'))
     private listaClientes = element.all(by.css('ul.clientes li'));
 
     async clickBotonCrearClientes() {
         await this.linkCrearCliente.click();
     }
 
-    async clickBotonListarClientes() {
-        await this.linkListarCliente.click();
+    async clickBotonConsultarClientes() {
+        await this.linkConsultarCliente.click();
+    }
+
+    async clickBotonRegistrar() {
+        await this.buttonRegistrar.click();
     }
 
     async ingresarId(id) {

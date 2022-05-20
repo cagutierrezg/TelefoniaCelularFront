@@ -3,8 +3,8 @@ import { by, element } from 'protractor';
 export class PlanPage {
     private linkCrearPlan = element(by.id('linkCrearPlan'));
     private linkListarPlan = element(by.id('linkListarPlan'));
-    private inputNamePlan = element(by.id('planName'));
-    private inputValuePlan = element(by.id('planValue'));
+    private inputNamePlan = element(by.id('namePlan'));
+    private inputValuePlan = element(by.id('valuePlan'));
     private inputSpecificationPlan = element(by.id('specificationPlan'));
     private listaPlan = element.all(by.css('ul.planes li'));
 
@@ -16,12 +16,12 @@ export class PlanPage {
         await this.linkListarPlan.click();
     }
 
-    async ingresarNamePlan(planName) {
-        await this.inputNamePlan.sendKeys(planName);
+    async ingresarNamePlan(namePlan) {
+        await this.inputNamePlan.sendKeys(namePlan);
     }
 
-    async ingresarValuePlan(planValue) {
-        await this.inputValuePlan.sendKeys(planValue);
+    async ingresarValuePlan(valuePlan) {
+        await this.inputValuePlan.sendKeys(valuePlan);
     }
 
     async ingresarSpecificationPlan(specificationPlan) {
