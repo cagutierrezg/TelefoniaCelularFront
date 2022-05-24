@@ -39,9 +39,15 @@ describe('ConsultarClienteComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+    
+  it('consultar cliente', () => {
+    expect(component.consultaForm.valid).toBeFalsy();
+    component.consultaForm.controls.documentNumber.setValue('1373828423');
+    component.consultaForm.controls.phoneNumber.setValue('3172834132');
     expect(component).toBeTruthy();
-  });
+
+
+    });
 
 
 

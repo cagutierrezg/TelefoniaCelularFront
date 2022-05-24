@@ -1,6 +1,5 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
-
 import { CrearPlanComponent } from './crear-plan.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
@@ -8,11 +7,13 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { PlanService } from '../../shared/service/plan.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 describe('CrearPlanComponent', () => {
   let component: CrearPlanComponent;
   let fixture: ComponentFixture<CrearPlanComponent>;
   let planService: PlanService;
+  let router:Router;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -24,7 +25,7 @@ describe('CrearPlanComponent', () => {
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [PlanService, HttpService],
+      providers: [PlanService, HttpService ],
     })
     .compileComponents();
   }));
@@ -32,13 +33,19 @@ describe('CrearPlanComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CrearPlanComponent);
     component = fixture.componentInstance;
+    
     planService = TestBed.inject(PlanService);
     spyOn(planService, 'guardar').and.returnValue(
       of(5)
     );
     fixture.detectChanges();
+    router = TestBed.get(Router);
+    
   });
 
+  
+
+  
   it('should create', () => {
     expect(component).toBeTruthy();
   });
@@ -47,16 +54,21 @@ describe('CrearPlanComponent', () => {
     expect(component.planForm.valid).toBeFalsy();
   });
 
-  it('Registrando plan', () => {
+  it('Registrando plan',  () => {
     expect(component.planForm.valid).toBeFalsy();
     component.planForm.controls.namePlan.setValue('plan Silver');
     component.planForm.controls.valuePlan.setValue('30.000');
     component.planForm.controls.specificationPlan.setValue('3 GB, 200 minutos, 100 sms');
     expect(component.planForm.valid).toBeTruthy();
 
+
+    const navigateSpy = spyOn(router,'navigate');
     component.cerar();
 
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+  
+    expect(planService.guardar).toHaveBeenCalled();
+    expect(navigateSpy).toHaveBeenCalledWith(['/plan/listar']);
+    
+  
   });
 });

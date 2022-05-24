@@ -6,7 +6,8 @@ export class PlanPage {
     private inputNamePlan = element(by.id('namePlan'));
     private inputValuePlan = element(by.id('valuePlan'));
     private inputSpecificationPlan = element(by.id('specificationPlan'));
-    private listaPlan = element.all(by.css('ul.planes li'));
+    private listaPlan = element.all(by.css('tr '));
+    private buttonCrearPlan = element(by.id('buttonCrearPlan'));
 
     async clickBotonCrearPlanes() {
         await this.linkCrearPlan.click();
@@ -15,6 +16,11 @@ export class PlanPage {
     async clickBotonListarPlanes() {
         await this.linkListarPlan.click();
     }
+
+    async clickBotonCrear() {
+        await this.buttonCrearPlan.click();
+    }
+
 
     async ingresarNamePlan(namePlan) {
         await this.inputNamePlan.sendKeys(namePlan);

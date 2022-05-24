@@ -8,11 +8,14 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ClienteService } from '../../shared/service/cliente.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 describe('ActualizarClienteComponent', () => {
   let component: ActualizarClienteComponent;
   let fixture: ComponentFixture<ActualizarClienteComponent>;
   let clienteService: ClienteService;
+  let router:Router;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -37,6 +40,7 @@ describe('ActualizarClienteComponent', () => {
       of(true)
     );
     fixture.detectChanges();
+    router = TestBed.get(Router);
   });
 
   it('should create', () => {
@@ -52,11 +56,18 @@ describe('ActualizarClienteComponent', () => {
     component.actualizarForm.controls.id.setValue(1);
     component.actualizarForm.controls.planId.setValue('1');
     component.actualizarForm.controls.planValue.setValue('20.000');
-    component.actualizar();
-
     
 
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+    const navigateSpy = spyOn(router,'navigate');
+    component.actualizar();
+  
+      expect(clienteService.actualizar).toHaveBeenCalled();
+      expect(navigateSpy).toHaveBeenCalledWith(['/cliente/consultar']);
+
+      setTimeout(() => {
+        expect(Swal.getTitle().textContent).toEqual('Usuario actualizado correctamente');
+        Swal.clickConfirm();
+      });
+    
   });
 });

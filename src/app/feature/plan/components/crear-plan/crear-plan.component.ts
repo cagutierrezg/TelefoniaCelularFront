@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { PlanService } from '../../shared/service/plan.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-crear-plan',
@@ -10,19 +11,40 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   })
   export class CrearPlanComponent implements OnInit {
     planForm: FormGroup;
-    constructor(protected planServices: PlanService) { }
+    idplan;
+    constructor(protected planServices: PlanService, private router: Router) { }
   
     ngOnInit() {
       this.construirFormularioPlan();
       
     }
   
+
     
     cerar() {
-      this.planServices.guardar(this.planForm.value).subscribe(
-        response => {
-          console.log(response);
-        });
+
+      if (this.planForm.valid) {
+      
+        this.planServices.guardar(this.planForm.value).subscribe(
+          ()  => {
+
+            
+            this.router.navigate(['/plan/listar']);},
+            error => {
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: error.error.mensaje,
+                showConfirmButton: true
+                
+              });
+              this.planForm.reset();
+  
+          });
+      
+      }
+
+
     }
   
     private construirFormularioPlan() {

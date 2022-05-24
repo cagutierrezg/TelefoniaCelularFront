@@ -38,7 +38,7 @@ describe('ListarPlanComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('listar plan', () => {
     expect(component).toBeTruthy();
     component.listaPlan.subscribe(resultado => {
       expect(2).toBe(resultado.length);

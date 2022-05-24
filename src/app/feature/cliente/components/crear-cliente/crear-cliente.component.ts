@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../shared/service/cliente.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 10;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 10;
 
@@ -12,7 +13,8 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 10;
   })
   export class CrearClienteComponent implements OnInit {
     clienteForm: FormGroup;
-    constructor(protected clienteServices: ClienteService) { }
+    idcliente;
+    constructor(protected clienteServices: ClienteService,  private router: Router) { }
   
     ngOnInit() {
       this.construirFormularioCliente();
@@ -23,12 +25,34 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 10;
     cerar() {
       console.log(this.clienteForm.value)
       this.clienteServices.guardar(this.clienteForm.value).subscribe(
-        response => {
-          console.log(this.clienteForm.value)
-          console.log(response);
+         () => {
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Usuario creado correctamente',
+            showConfirmButton: true
+            
+          })
+          this.router.navigate(['/cliente/consultar']);
+        },
+          error => {
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: error.error.mensaje,
+              showConfirmButton: true
+              
+            });
+
+            this.clienteForm.reset();
           
-        });
-    }
+            }
+
+          );
+        
+        };
+      
+    
   
     private construirFormularioCliente() {
       

@@ -42,7 +42,10 @@ export class ConsultarClienteComponent implements OnInit {
 
 
       consultar() {
-        this.listaCliente = this.clienteService.consultar(this.consultaForm.value);
+        this.listaCliente = this.clienteService.consultar(this.consultaForm.value)
+         
+   
+        
       }
 
     

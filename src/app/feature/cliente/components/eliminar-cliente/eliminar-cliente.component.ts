@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../shared/service/cliente.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-eliminar-cliente',
@@ -9,9 +11,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EliminarClienteComponent implements OnInit {
 
-    eliminarForm: FormGroup;
+  eliminarForm: FormGroup;
 
-  constructor(protected clienteService: ClienteService) { }
+  constructor(protected clienteService: ClienteService,  private router: Router)  { }
 
   ngOnInit() {
 
@@ -23,9 +25,28 @@ export class EliminarClienteComponent implements OnInit {
 
       eliminar() {
         this.clienteService.eliminar(this.eliminarForm.value).subscribe(
-          response => {
-            console.log(response);
-          });;
+          () => {
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Usuario eliminado correctamente',
+              showConfirmButton: true
+              
+            })
+          
+            this.router.navigate(['/cliente/consultar']);
+          },
+            error => {
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: error.error.mensaje,
+                showConfirmButton: true
+                
+              });
+              this.eliminarForm.reset();
+            
+              });
       }
 
     

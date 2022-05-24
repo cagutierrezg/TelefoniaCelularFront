@@ -9,6 +9,7 @@ import { PlanService } from './shared/service/plan.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
+
 @NgModule({
   declarations: [
     CrearPlanComponent,

@@ -8,11 +8,15 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { ClienteService } from '../../shared/service/cliente.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
 
 describe('CrearClienteComponent', () => {
   let component: CrearClienteComponent;
   let fixture: ComponentFixture<CrearClienteComponent>;
   let clienteService: ClienteService;
+  let router:Router;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
@@ -37,6 +41,7 @@ describe('CrearClienteComponent', () => {
       of(5)
     );
     fixture.detectChanges();
+    router = TestBed.get(Router);
   });
 
   it('should create', () => {
@@ -57,11 +62,17 @@ describe('CrearClienteComponent', () => {
     component.clienteForm.controls.planValue.setValue('20.000');
     component.clienteForm.controls.startDate.setValue('2022-04-06 01:34:00');
     
+    const navigateSpy = spyOn(router,'navigate');
     component.cerar();
 
-    
+     
+    expect(clienteService.guardar).toHaveBeenCalled();
+    expect(navigateSpy).toHaveBeenCalledWith(['/cliente/consultar']);
 
-    // Aca validamos el resultado esperado al enviar la petición
-    // TODO adicionar expect
+    setTimeout(() => {
+      expect(Swal.getTitle().textContent).toEqual('Usuario creado correctamente');
+      Swal.clickConfirm();
+    });
+
   });
 });

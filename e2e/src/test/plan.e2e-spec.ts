@@ -15,9 +15,10 @@ describe('workspace-project Plan', () => {
     });
 
     it('Deberia crear plan', () => {
-        const NAME_PLAN = 'plan Silver';
+        const NAME_PLAN = 'plan Silver9';
         const VALUE_PLAN = '50.000';
         const SPECIFICATION_PLAN = '3 GB, 200 MIN, 300 SMS';
+        
 
         page.navigateTo();
         navBar.clickBotonPlanes();
@@ -26,14 +27,25 @@ describe('workspace-project Plan', () => {
         plan.ingresarValuePlan(VALUE_PLAN);
         plan.ingresarSpecificationPlan(SPECIFICATION_PLAN);
 
-        // Adicionamos las validaciones despues de la creación
-        // expect(<>).toEqual(<>);
+        plan.clickBotonCrear();
+
+        navBar.clickBotonPlanes();
+        plan.clickBotonListarPlanes();
+
+        expect(9).toBe(plan.contarPlanes());
+
+        
+
     });
 
     it('Deberia listar planes', () => {
         page.navigateTo();
         navBar.clickBotonPlanes();
         plan.clickBotonListarPlanes();
+
+        expect(9).toBe(plan.contarPlanes());
+
+        
 
     });
 });
