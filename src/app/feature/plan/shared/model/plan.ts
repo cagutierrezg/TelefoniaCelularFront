@@ -2,7 +2,7 @@ export class Plan {
     id: number;
     namePlan: string;
     valuePlan: string;
-    specificationPlan: string
+    specificationPlan: string;
 
 
     constructor(id: number, namePlan: string, valuePlan: string, specificationPlan: string) {

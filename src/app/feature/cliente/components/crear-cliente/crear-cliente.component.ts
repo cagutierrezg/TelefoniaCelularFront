@@ -23,7 +23,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 10;
   
     
     cerar() {
-      console.log(this.clienteForm.value)
+      
       this.clienteServices.guardar(this.clienteForm.value).subscribe(
          () => {
           Swal.fire({

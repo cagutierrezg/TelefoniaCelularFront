@@ -16,7 +16,6 @@ export class ClienteService {
   public guardar(cliente: Cliente) {
     return this.http.doPost<Cliente>(`${environment.endpoint}/clientes`, cliente,
                                                 this.http.optsName('crear clientes'));
-                                                console.log
   }
 
   public eliminar(cliente: Cliente) {
