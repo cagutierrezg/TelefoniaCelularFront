@@ -50,15 +50,7 @@ pipeline {
       }
     }
 	
-	stage('Unit Test') {
-      steps {
-        echo "------------>Testing<------------"
-        sh 'npm run e2e 
-      }
-    }
  
-
-
     stage('Static Code Analysis') {
       steps{
         echo "------------>Análisis de código estático<------------"
